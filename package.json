@@ -1,0 +1,19 @@
+{
+  "name": "angular-todo",
+  "version": "1.0.0",
+  "description": "Code Institute Angular Lesson Project - A Todo List",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kilik2021/angular-todo.git"
+  },
+  "author": "Justin Robinson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kilik2021/angular-todo/issues"
+  },
+  "homepage": "https://github.com/kilik2021/angular-todo#readme"
+}
