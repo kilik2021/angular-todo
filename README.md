@@ -20,6 +20,9 @@ This app uses JSON Web Tokens to authenticate users and keep them logged in. All
 
 - User Based Features
     - Registration
+- Todo Based Features
+    - Creating Todo - Items
+    - Retrieving Todo - Items
 
 ### Features Left to Implement
 
@@ -27,8 +30,6 @@ This app uses JSON Web Tokens to authenticate users and keep them logged in. All
     - Login
     - Logout
 - Todo Based Features
-    - Creating Todo - Items
-    - Retrieving Todo Items
     - Updating Todo Items
     - Deleting Todo Items
 
