@@ -12,7 +12,7 @@ This app will allow users to register and login. Once the users have done that, 
 
 ### How does it work?
 
-This app uses JSON Web Tokens to authenticate users and keep them logged in. All the data is consumed from an AIP hosted on Heroku using AngularJS. This site is styled with Bootstrap.
+This app uses JSON Web Tokens to authenticate users and keep them logged in. All the data is consumed from an API hosted on Heroku using AngularJS. This site is styled with Bootstrap.
 
 ## Features
 
@@ -23,6 +23,8 @@ This app uses JSON Web Tokens to authenticate users and keep them logged in. All
 - Todo Based Features
     - Creating Todo - Items
     - Retrieving Todo - Items
+    - Updating Todo Items
+    - Deleting Todo Items
 
 ### Features Left to Implement
 
@@ -30,8 +32,7 @@ This app uses JSON Web Tokens to authenticate users and keep them logged in. All
     - Login
     - Logout
 - Todo Based Features
-    - Updating Todo Items
-    - Deleting Todo Items
+    - All Implemented!
 
 ## Tech Used
 
