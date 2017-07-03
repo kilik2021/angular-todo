@@ -86,7 +86,7 @@ angular.module('RouteControllers', [])
             if ($scope.todoForm.$valid) {
                 $scope.todo.username = $scope.username;
 
-                TodoAPIService.editTodo(URL + "todo/" + id, store.get('authToken')).then(function(results) {
+                TodoAPIService.editTodo(URL + "todo/" + id, $scope.todo, store.get('authToken')).then(function(results) {
                     $location.path("/todo");
                 }).catch(function(err) {
                     console.log(err);
