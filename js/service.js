@@ -6,6 +6,20 @@ angular.module('UserService', [])
             }
         };
         return UserAIPService;
+    })
+    .factory('UserDetails', function($scope, store) {
+        UserDetails = {
+            getUserDetails: function() {
+                if (!store.get('authToken')) {
+                    $scope.userDetails.loginStatus = "Login";
+                    $scope.userDetails.loginUrl = "/accounts/login";
+                } else {
+                    $scope.userDetails.loginStatus = "Welcome, " + store.get('username');
+                    $scope.userDetails.loginStatus = "/accounts/logout";
+                }
+            }
+        };
+        return UserDetails;
     });
 
 angular.module('TodoService', [])

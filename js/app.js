@@ -26,5 +26,6 @@ angular.module('TodoApp').config(function($locationProvider, $routeProvider) {
     .when('/todo/edit/:id', {
         templateUrl: 'templates/edit-todo.html',
         controller: 'EditTodoController'
-    });
+    })
+    .otherwise({ redirectTo: '/' });
 });

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="TodoApp">
+<html data-ng-app="TodoApp">
 <head>
     <title>Angular Todo</title>
     <base href="/">
@@ -34,12 +34,12 @@
                     <li><a href="/">Home</a></li>
                     <li><a href="/todo">Todo</a></li>
                     <li><a href="/accounts/register">Account</a></li>
-                    <li ng-controller="UserDisplay" user-status></li>
+                    <li user-status></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div ng-view>
+    <div data-ng-view>
 
     </div>
     <script src="js/app.js"></script>

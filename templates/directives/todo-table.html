@@ -1,3 +1,14 @@
+<label for="">Filter</label>
+<div class="input-group col-md-4">
+  <span class="input-group-addon">Filter by Status</span>
+  <select name="filter" data-ng-model="filter.status" class="form-control">
+      <option value="">Show All</option>
+      <option value="Todo">Todo</option>
+      <option value="Doing">Doing</option>
+      <option value="Done">Done</option>
+  </select>
+</div>
+
 <table class="table">
     <thead>
         <tr>
@@ -8,13 +19,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="todo in todos">
+        <tr data-ng-repeat="todo in todos | filter:filter.status">
             <td>{{todo.title}}</td>
             <td>{{todo.description}}</td>
             <td>{{todo.status}}</td>
             <td>
-                <button ng-click="editTodo(todo.id)" class="btn btn-xs btn-default" title="Click to edit this todo item"><span class="glyphicon glyphicon-edit"></span></button>
-                <button ng-click="deleteTodo(todo.id)" class="btn btn-xs btn-danger" title="Click to delete this todo item"><span class="glyphicon glyphicon-trash"></span></button>
+                <button data-ng-click="editTodo(todo.id)" class="btn btn-xs btn-default" title="Click to edit this todo item"><span class="glyphicon glyphicon-edit"></span></button>
+                <button data-ng-click="deleteTodo(todo.id)" class="btn btn-xs btn-danger" title="Click to delete this todo item"><span class="glyphicon glyphicon-trash"></span></button>
             </td>
         </tr>
     </tbody>

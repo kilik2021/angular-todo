@@ -2,14 +2,8 @@ angular.module('RouteControllers', [])
     .controller('HomeController', function($scope) {
         $scope.title = "Welcome To Angular Todo!";
     })
-    .controller('UserDisplay', function($scope, store) {
-        if (!store.get('authToken')) {
-            $scope.userLoginStatus = "Login";
-            $scope.userLoginUrl = "/accounts/login";
-        } else {
-            $scope.userLoginStatus = "Welcome, " + store.get('username');
-            $scope.userLoginUrl = "/accounts/logout";
-        }
+    .controller('UserDisplay', function($scope, UserDetails) {
+        UserDetails.getUserDetails();
     })
     .controller('LoginController', function($scope, $location, UserAIPService, store) {
         var URL = "https://morning-castle-91468.herokuapp.com/";
@@ -85,20 +79,25 @@ angular.module('RouteControllers', [])
             $location.path("/todo/edit/" + id);
         };
 
+        function getTodoList() {
+            TodoAPIService.getTodos(URL + "todo/", $scope.username, $scope.authToken).then(function(results) {
+                $scope.todos = results.data || [];
+                console.log($scope.todos);
+            }).catch(function(err) {
+                console.log(err);
+            });
+        }
+
+        getTodoList();
+
         $scope.deleteTodo = function(id) {
             TodoAPIService.deleteTodo(URL + "todo/" + id, $scope.username, $scope.authToken).then(function(results) {
                 console.log(results);
+                getTodoList();
             }).catch(function(err) {
                 console.log(err);
             });
         };
-
-        TodoAPIService.getTodos(URL + "todo/", $scope.username, $scope.authToken).then(function(results) {
-            $scope.todos = results.data || [];
-            console.log($scope.todos);
-        }).catch(function(err) {
-            console.log(err);
-        });
 
         $scope.submitForm = function() {
             if ($scope.todoForm.$valid) {
@@ -108,7 +107,7 @@ angular.module('RouteControllers', [])
                 TodoAPIService.createTodo(URL + "todo/", $scope.todo, $scope.authToken).then(function(results) {
                     console.log(results);
                     $('#todo-modal').modal('hide');
-                    $location.path('/todo');
+                    getTodoList();
                 }).catch(function(err) {
                     console.log(err);
                 });
