@@ -5,10 +5,10 @@ angular.module('RouteControllers', [])
     .controller('UserDisplayController', function($scope, store) {
         if (!store.get('authToken')) {
             $scope.userDetailsLoginStatus = "Login";
-            $scope.userDetailsLoginUrl = "/accounts/login";
+            $scope.userDetailsLoginUrl = "accounts/login";
         } else {
             $scope.userDetailsLoginStatus = "Welcome, " + store.get('username');
-            $scope.userDetailsLoginUrl = "/accounts/logout";
+            $scope.userDetailsLoginUrl = "accounts/logout";
         }
     })
     .controller('LoginController', function($scope, $location, UserAIPService, store) {
