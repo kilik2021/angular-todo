@@ -2,8 +2,14 @@ angular.module('RouteControllers', [])
     .controller('HomeController', function($scope) {
         $scope.title = "Welcome To Angular Todo!";
     })
-    .controller('UserDisplay', function($scope, UserDetails) {
-        UserDetails.getUserDetails();
+    .controller('UserDisplayController', function($scope, store) {
+        if (!store.get('authToken')) {
+            $scope.userDetails.loginStatus = "Login";
+            $scope.userDetails.loginUrl = "/accounts/login";
+        } else {
+            $scope.userDetails.loginStatus = "Welcome, " + store.get('username');
+            $scope.userDetails.loginStatus = "/accounts/logout";
+        }
     })
     .controller('LoginController', function($scope, $location, UserAIPService, store) {
         var URL = "https://morning-castle-91468.herokuapp.com/";
