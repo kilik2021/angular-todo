@@ -4,11 +4,11 @@ angular.module('RouteControllers', [])
     })
     .controller('UserDisplayController', function($scope, store) {
         if (!store.get('authToken')) {
-            $scope.userDetails.loginStatus = "Login";
-            $scope.userDetails.loginUrl = "/accounts/login";
+            $scope.userDetailsLoginStatus = "Login";
+            $scope.userDetailsLoginUrl = "/accounts/login";
         } else {
-            $scope.userDetails.loginStatus = "Welcome, " + store.get('username');
-            $scope.userDetails.loginStatus = "/accounts/logout";
+            $scope.userDetailsLoginStatus = "Welcome, " + store.get('username');
+            $scope.userDetailsLoginUrl = "/accounts/logout";
         }
     })
     .controller('LoginController', function($scope, $location, UserAIPService, store) {
